@@ -1,0 +1,14 @@
+---
+- name: Find out stuff
+  hosts: all
+  connection: local
+  tasks:
+    - name: Find the hostname
+      debug:
+       var: ansible_hostname
+    - name: Find the IPv4 Address
+      debug: var=ansible_default_ipv4.address
+    - name: Copy a file
+      copy:
+        content: "The content of the file"
+        dest: "/tmp/file"
